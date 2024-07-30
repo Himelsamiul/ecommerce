@@ -1,5 +1,4 @@
 
-
       <section class="page-wrapper">
         <div class="contact-section">
           <div class="container">
@@ -37,9 +36,7 @@
                 </form>
               </div>
               <!-- ./End Contact Form -->
-              
-             
-              
+                      
             
             </div> <!-- end row -->
           </div> <!-- end container -->
