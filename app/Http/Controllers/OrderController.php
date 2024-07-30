@@ -9,7 +9,8 @@ class OrderController extends Controller
 {
     public function orderList(){
 
-        $orders = Order::latest()->get();
+        $orders = Order::latest()->with('product')->get();
+
 
         return view('backend.pages.order.orderList',compact('orders'));
     }

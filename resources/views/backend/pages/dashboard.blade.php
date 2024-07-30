@@ -61,7 +61,7 @@
               <i class="material-icons opacity-10">weekend</i>
             </div>
             <div class="text-end pt-1">
-              <p class="text-sm mb-0 text-capitalize">Sales</p>
+              <p class="text-sm mb-0 text-capitalize">Categories</p>
               <h4 class="mb-0">{{$totalCategories}}</h4>
             </div>
           </div>
