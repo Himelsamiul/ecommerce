@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-header">
-            <h4 class="text-center text-success mb-0">User Feedback</h4>
+            <h4 class="text-center text-dark mb-0">Contack</h4>
         </div>
         <div class="card-body">
             <table class="table table-striped">

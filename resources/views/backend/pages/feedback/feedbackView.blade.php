@@ -49,7 +49,7 @@
 <main role="main">
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">User Feedback</h1>
+            <h1 class="jumbotron-heading">Contact</h1>
             
         </div>
     </section>
@@ -65,10 +65,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <small class="text-muted">{{ $messages->created_at->diffForHumans() }}</small>
                             </div>
-                            <div class="btn-group mt-3">
-                                <a href="{{ route('contact.list') }}" class="btn btn-sm btn-outline-secondary">Back to Feedback</a>
-                                
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

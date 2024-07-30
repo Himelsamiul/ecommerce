@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h4 class="text-success mb-0">Category List</h4>
+            <h4 class="mb-0" style="color: black">Category List</h4>
             <a class="btn btn-success" href="{{ route('category.form') }}">Add Category</a>
         </div>
         <div class="card-body">

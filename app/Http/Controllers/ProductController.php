@@ -22,7 +22,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name'                  => 'required|string',
             'category_id'           => 'required',
-            'image'                 => 'nullable|max:500',
+            'image'                 => 'nullable|max:1000',
             'stock'                 => 'required|integer|min:0',
             'price'                 => 'required|numeric|min:0',
             'discount'              => 'nullable|numeric|min:0|max:100',
