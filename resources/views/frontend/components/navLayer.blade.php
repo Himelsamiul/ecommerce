@@ -346,7 +346,7 @@
 
 					<!-- Pages -->
 					<li class="dropdown full-width dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						<a href="{{ url('/contact') }}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Contact us <span
 								></span></a>
 						
