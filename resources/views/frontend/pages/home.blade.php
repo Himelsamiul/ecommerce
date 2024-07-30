@@ -5,7 +5,7 @@
 
  @include('frontend.components.hero')
  @include('frontend.components.product')
- @include('frontend.pages.product.latest-product-squad')
+
 
 
 
