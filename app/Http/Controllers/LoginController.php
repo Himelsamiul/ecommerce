@@ -33,7 +33,7 @@ class LoginController extends Controller
                 return redirect()->route('dashboard');
             }
         } else {
-            notify()->error('error','Invalid credentials');
+            notify()->error('error','Something went wrong, check again');
             return redirect()->back();
         }
     }

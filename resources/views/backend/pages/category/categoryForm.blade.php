@@ -14,16 +14,16 @@
             @endif
 
             <div class="mb-4">
-                <label for="exampleInputName2" class="form-label">Category Type</label>
-                <input type="text" value="{{ old('type') }}" class="form-control" id="exampleInputName2" name="type" placeholder="Fruit" style="height: 45px; font-size: 18px;">
+                <label for="exampleInputName2" class="form-label" style="color: #000"><b>Category Type</b></label>
+                <input type="text" value="{{ old('type') }}" class="form-control" id="exampleInputName2" name="type" placeholder="Kurti" style="height: 45px; font-size: 18px; border: 1px solid #000;">
                 @error('type')
                     <strong class="text-danger">{{ $message }}</strong>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="exampleInputName2" class="form-label">Status</label>
-                <select class="form-control" name="status" id="" style="height: 45px; font-size: 18px;">
+                <label for="exampleInputName2" class="form-label" style="color: #000"><b>Status</b></label>
+                <select class="form-control" name="status" id="" style="height: 45px; font-size: 18px; border: 1px solid #000; border-radius: 0.25rem; padding: 0.375rem 0.75rem;">
                     <option value="1">Active</option>
                     <option value="0">Inactive</option>                  
                 </select>

@@ -1,42 +1,32 @@
 @extends('backend.pages.auth.loginForm')
-
 @section('loginbackend')
-<div class="card shadow-lg border-0 rounded-lg mt-5">
-    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-    <div class="card-body">
-        <form action="{{route('login.submit')}}" method="post" enctype="multipart/form-data">
 
-            @csrf
+<form action="{{route('login.submit')}}" method="post" enctype="multipart/form-data">
 
-            @if(session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-           @endif
+    @csrf
 
-            <div class="form-floating mb-3">
-                <input class="form-control" id="inputEmail" name="email" value="{{old('email')}}" type="email" placeholder="name@example.com" />
-                <label for="inputEmail">Email address</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input class="form-control" name="password" id="inputPassword" value="{{old('password')}}" type="password" placeholder="Password" />
-                <label for="inputPassword">Password</label>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-            </div>
-            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                {{-- <a class="small" href="password.html">Forgot Password?</a> --}}
-                <button class="btn btn-primary" style="color:black" type="submit" >Login</button>
-            </div>
-        </form>
+    @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
     </div>
-
-    <div class="card-footer  py-3">
-        <div class="small text-right" >Click <a href="{{route('home')}}"> here</a> to go  <i class="fa fa-home btn btn-success"></i> </div>
-    </div>
-
-</div>
+   @endif
+  <div class="input-group input-group-outline my-3">
+    <label class="form-label">Email</label>
+    <input type="email" name="email" class="form-control">
+  </div>
+  <div class="input-group input-group-outline mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" name="password" class="form-control">
+  </div>
+  <div class="form-check form-switch d-flex align-items-center mb-3">
+    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+    <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" style="color: black">Sign in</button>
+  </div>
+  
+</form>
 
 @endsection
+

@@ -1,13 +1,18 @@
-<div>
-<footer class="py-4 bg-light mt-auto">
-    <div class="container-fluid px-4">
-        <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; {{ config('app.name') }} {{ date('Y') }}</div>
-            <div>
-                
-            </div>
-        </div>
-    </div>
-</footer>
 
-</div>
+
+<footer class="footer py-4  ">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-lg-between">
+        <div class="col-lg-6 mb-lg-0 mb-4">
+          <div class="copyright text-center text-sm text-muted text-lg-start">
+            © <script>
+              document.write(new Date().getFullYear())
+            </script>,
+            made with <i class="fa fa-heart"></i> by {{ config('app.name') }}
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
