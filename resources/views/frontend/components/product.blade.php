@@ -25,11 +25,18 @@
 			                        
                                     <form method="POST" action="{{ route('add.to.wishlist', ['id' => $item->id]) }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-black{{ $inWishlist ? ' in-wishlist' : '' }}">
+                                        <button type="submit" class="btn btn-white{{ $inWishlist ? ' in-wishlist' : '' }}">
                                             <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.9996 16.5451C-6.66672 7.3333 4.99993 -2.6667 9.9996 3.65668C14.9999 -2.6667 26.6666 7.3333 9.9996 16.5451Z" stroke="currentColor" stroke-width="1.5"></path>
+                                              <path d="M9.9996 16.5451C-6.66672 7.3333 4.99993 -2.6667 9.9996 3.65668C14.9999 -2.6667 26.6666 7.3333 9.9996 16.5451Z" stroke="currentColor" stroke-width="1.5" fill="currentColor"></path>
                                             </svg>
-                                        </button>
+                                          </button>
+                                          
+                                          <style>
+                                            .btn.btn-white {
+                                              color: black; /* Set the color to black */
+                                            }
+                                          </style>
+                                          
                                     </form>
 								</li>
 								<li>
@@ -39,7 +46,7 @@
                       	</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">{{ $item->name }}</a></h4>
+						<h4><a href="{{url('/product-details',$item->id)}}">{{ $item->name }}</a></h4>
 						<p class="price">{{ $item->price }} Tk</p>
 					</div>
 				</div>
