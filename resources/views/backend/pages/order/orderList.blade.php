@@ -7,25 +7,7 @@
             <h1 class="text-center">Order Report</h1>
         </div>
         <div class="card-body">
-            <form action="{{ route('order.report.search') }}" method="get">
-                <div class="row align-items-end mb-4">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="from_date">From date:</label>
-                            <input name="from_date" type="date" class="form-control" id="from_date">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="to_date">To date:</label>
-                            <input name="to_date" type="date" class="form-control" id="to_date">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-success btn-block">Search</button>
-                    </div>
-                </div>
-            </form>
+           
 
             <div id="orderReport">
                 <h2 class="text-center">Order Reports - {{ date('Y-m-d') }}</h2>
@@ -48,7 +30,7 @@
                             @foreach($orders as $key => $order)
                                 <tr>
                                     <th scope="row">{{ $key + 1 }}</th>
-                                    <td>{{ $order->name }}</td>
+                                    <td>{{ $order->product->name }}</td>
                                     <td>{{ $order->total_price }} Tk.</td>
                                     <td>{{ $order->full_name }}</td>
                                     <td>{{ $order->address }}</td>
@@ -61,21 +43,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="text-center mt-3">
-                <button onclick="printDiv('orderReport')" class="btn btn-success">Print</button>
-            </div>
+            
         </div>
     </div>
 </div>
 
-<script>
-    function printDiv(divId) {
-        var printContents = document.getElementById(divId).innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    }
-</script>
+
 
 @endsection

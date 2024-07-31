@@ -58,7 +58,7 @@
 
 
 
-        @include('frontend.components.footer')
+    @include('frontend.components.footer')
 
 
     <!-- 

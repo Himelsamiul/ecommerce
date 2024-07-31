@@ -35,7 +35,7 @@
 			<div class="col-md-7">
 				<div class="single-product-details">
 					<h2>{{ $details->name }}</h2>
-					<p class="product-price">{{ $details->price }}</p>
+					<p class="product-price">{{ $details->price }} Tk</p>
 					
 					<p class="product-description mt-20">
 						{!!($details->product_information)!!}
