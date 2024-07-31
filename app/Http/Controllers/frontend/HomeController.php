@@ -24,31 +24,14 @@ class HomeController extends Controller
           $categories = Category::latest()->limit(9)->get();
          
           //Products
-          $products = Product::simplePaginate(16);
-
-          //Latest Category
-          $latestCategories = Category::latest()->limit(5)->get();
+          $products = Product::Paginate(12);
 
           //Latest Products
           $latestProducts = Product::where('status',1)->latest()->limit(6)->get();
 
         
          return view('frontend.pages.home',
-         compact('categories','products','latestProducts',
-        'latestCategories'));
+         compact('categories','products','latestProducts'));
     }
 
-       public function categoryWiseProduct($id){
-
-        $category = Category::findOrFail($id);
-
-        //Feature Products
-        $products = Product::where('category_id', $id)
-        ->where('status', 1)->limit(20)
-        ->get();
-
-
-
-        return view('frontend.pages.catWizeProduct.categoryWizeProduct',compact('products','category'));
-    }
 }

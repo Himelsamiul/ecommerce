@@ -77,18 +77,7 @@
        
                                     <input type="text"  name="search_key"  placeholder="What do you need?">
                                     
-                                <span class="search-icon">
-                                    <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.16667 16.3333C12.8486 16.3333 15.8333 13.3486 15.8333 9.66667C15.8333 5.98477 12.8486 3 9.16667 3C5.48477 3 2.5 5.98477 2.5 9.66667C2.5 13.3486 5.48477 16.3333 9.16667 16.3333Z"
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        />
-                                        <path d="M17.4999 18L13.8749 14.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
+                                
                                 <button type="submit" class="search-btn button button--md">
                                     Search
                                 </button>
@@ -231,7 +220,7 @@
 								font-family="AustinBold, Austin" font-weight="bold">
 								<g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
 									<text id="AVIATO">
-										<tspan x="108.94" y="325">AVIATO</tspan>
+										<tspan x="108.94" y="325">AVIATOs</tspan>
 									</text>
 								</g>
 							</g>
@@ -267,7 +256,21 @@
 								class="tf-ion-ios-search-strong"></i> Search</a>
 						<ul class="dropdown-menu search-dropdown">
 							<li>
-								<form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+								
+
+                                <form action="{{ route('user.search') }}">
+                                    @csrf
+                                    <div class="header__input-form">
+                                      
+               
+                                            <input type="text"  name="search_key"  placeholder="What do you need?">
+                                            
+                                        
+                                        <button type="submit" class="search-btn button button--md">
+                                            Search
+                                        </button>
+                                    </div>
+                                </form>
 							</li>
 						</ul>
 					</li><!-- / Search -->
@@ -309,7 +312,7 @@
 
 					<!-- Elements -->
 					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						<a href="{{ url('/product') }}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
 								></span></a>
 						

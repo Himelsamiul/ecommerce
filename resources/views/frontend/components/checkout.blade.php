@@ -1,8 +1,5 @@
 
 
-
-
-
   <div class="page-wrapper">
     <div class="checkout shopping">
        <div class="container">
