@@ -15,6 +15,8 @@ class SslCommerzPaymentController extends Controller
 
     public function index(Request $request ,$id)
     {
+
+       
         $validator = Validator::make($request->all(), [
             
             'address'           => 'required|string',
@@ -31,6 +33,21 @@ class SslCommerzPaymentController extends Controller
 
 
         $product = Product::find($id);
+
+        
+
+        if ($product->stock > 0) {
+            $product->stock--;
+            $product->save();
+        }else {
+          
+          
+            notify()->error('Out of stock');
+            return redirect()->back();
+    
+        }
+
+
         $productNames = implode(', ', $request->input('product_names', []));
         $subtotal = $request->input('total_price');
 
