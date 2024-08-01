@@ -79,8 +79,8 @@
                             <span class="price">{{ $subtotal ?? 0 }} Tk.</span>
                          </li>
                          <li>
-                            <span>Shipping:</span>
-                            <span>Free</span>
+                            <span>Quantity:</span>
+                            <span>{{$data['quantity']}}</span>
                          </li>
                       </ul>
                       <div class="summary-total">
