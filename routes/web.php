@@ -85,6 +85,9 @@ Route::post('/product-update/{id}','productupdate')->name('product.update');
 Route::get('/product-delete/{id}','productDelete')->name('product.delete');
 Route::post('/product/rate/{id}','storeRating')->name('product.rate');});
 
+Route::get('/order-confirm/{id}', [OrderController::class, 'confirm'])->name('confirm');
+Route::get('/order-cancel/{id}', [OrderController::class, 'cancel'])->name('order.cancel');
+
 Route::controller(OrderController::class)->group(function(){
 Route::get('/order-list','orderList')->name('order.list');});  
 Route::get('/contact-list',[ContactController::class,'contactlist'])->name('contact.list');

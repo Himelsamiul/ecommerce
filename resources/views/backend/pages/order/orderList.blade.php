@@ -23,6 +23,7 @@
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
                             <th scope="col">Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +38,10 @@
                                     <td>{{ $order->phone }}</td>
                                     <td>{{ $order->email }}</td>
                                     <td class="text-danger">{{ $order->status }}</td>
+                                    <td><a href="{{ route('confirm',$order->id) }}" class="btn btn-warning">Confirm</a>
+                                        <a href="{{ route('order.cancel',$order->id) }}" class="btn btn-danger">Cancel</a>
+                                    
+                                    </td>
                                 </tr>
                             @endforeach
                         @endif

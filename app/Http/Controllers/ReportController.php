@@ -28,7 +28,7 @@ class ReportController extends Controller
         if($validator->fails())
         {
 
-           Alert:: toast()->error('From date and to date required and to should greater then from date.');
+           Alert::error('From date and to date required and to should greater then from date.');
             return redirect()->back();
         }
 
