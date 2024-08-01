@@ -26,7 +26,7 @@
                             <th scope="row">{{ $serial++ }}</th>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <a href="{{ route('contact.view', $item->id) }}"><b>See More</b></a>
+                                <a href="{{ route('contact.view', $item->id) }}"><b>View Message</b></a>
                             </td>
                         </tr>
                     @endforeach

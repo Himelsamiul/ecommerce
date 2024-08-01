@@ -4,13 +4,13 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center">Order Report</h1>
+            <h1 class="text-center">Order List</h1>
         </div>
         <div class="card-body">
            
 
             <div id="orderReport">
-                <h2 class="text-center">Order Reports - {{ date('Y-m-d') }}</h2>
+               
                 <br>
                 <table class="table table-striped">
                     <thead>
@@ -31,7 +31,7 @@
                                 <tr>
                                     <th scope="row">{{ $key + 1 }}</th>
                                     <td>{{ $order->product->name }}</td>
-                                    <td>{{ $order->total_price }} Tk.</td>
+                                    <td>{{ $order->price }} Tk.</td>
                                     <td>{{ $order->full_name }}</td>
                                     <td>{{ $order->address }}</td>
                                     <td>{{ $order->phone }}</td>

@@ -30,7 +30,7 @@
 			<div class="col-md-4">
 				<div class="product-item">
 					<div class="product-thumb">
-						<span class="bage">Sale</span>
+						<span class="bage">NEW</span>
 						<a href="{{url('/product-details',$item->id)}}"><img class="img-responsive" src="{{ asset('/public/uploads/' . $item->image) }}" alt="product-img" /></a>
 						<div class="preview-meta">
 							<ul>

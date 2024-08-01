@@ -7,6 +7,4 @@
  @include('frontend.components.product')
 
 
-
-
 @endsection

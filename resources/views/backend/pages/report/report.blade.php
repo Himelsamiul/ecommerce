@@ -58,8 +58,8 @@
         <tr>
 
             <th scope="row">{{ $key+1 }}</th>
-            <td>{{ $order->name }}</td>
-            <td>{{ $order->total_price }} Tk.</td>
+            <td>{{ $order->product->name }}</td>
+            <td>{{ $order->price }} Tk.</td>
             <td>{{ $order->full_name }}</td>
             <td>{{ $order->address }}</td>
             <td>{{ $order->phone }}</td>

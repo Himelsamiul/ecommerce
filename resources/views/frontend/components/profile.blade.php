@@ -44,7 +44,7 @@
                       <th>Order ID</th>
                       <th>Date</th>
                       <th>Items</th>
-                      <th>Total Price</th>
+                      
                       <th>Status</th>
                     </tr>
                   </thead>
