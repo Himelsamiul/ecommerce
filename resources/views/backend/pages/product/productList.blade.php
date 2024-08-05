@@ -35,8 +35,8 @@
                                 <td>{{ $item->price }} Tk.</td>
                                 <td>{{ $item->status == 1 ? 'Active' : ($item->status == 2 ? 'Trending' : 'Inactive') }}</td>
                                 <td>
-                                    <a href="{{ route('product.edit', $item->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                    <a href="{{ route('product.delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')"><i class="fas fa-trash"></i></a>
+                                    <a href="{{ route('product.edit', $item->id) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('product.delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('Do you want to delete ?')">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
