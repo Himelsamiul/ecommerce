@@ -63,6 +63,7 @@ Route::post('/wishlist/add/{id}', 'addToWishlist')->name('add.to.wishlist');
 Route::get('/wishlist/remove/{wishlist}','removeFromWishlist')->name('remove.Wishlist');
 Route::post('/cart/add-from-wishlist/{id}','addToCartFromWishlist')->name('cart.add-from-wishlist');});
 Route::get('/product-checkout/{id}',[FrontendProductController::class,'productCheckout'])->name('product.checkout');
+Route::post('/product/rate/{id}',[ProductController::class,'storeRating'])->name('product.rate');
 
 });
 
@@ -83,7 +84,7 @@ Route::get('/product-list','productList')->name('product.list');
 Route::get('/product-edit/{id}','productEdit')->name('product.edit');
 Route::post('/product-update/{id}','productupdate')->name('product.update');
 Route::get('/product-delete/{id}','productDelete')->name('product.delete');
-Route::post('/product/rate/{id}','storeRating')->name('product.rate');});
+});
 
 Route::get('/order-confirm/{id}', [OrderController::class, 'confirm'])->name('confirm');
 Route::get('/order-cancel/{id}', [OrderController::class, 'cancel'])->name('order.cancel');

@@ -64,6 +64,31 @@
 					</div>
 					<div class="product-content">
 						<h4><a href="{{url('/product-details',$item->id)}}">{{ $item->name }}</a></h4>
+						<div class="star-rating">
+							@php
+							  // Retrieve the product ratings for the current product
+							  $productRatings = App\Models\ProductRating::where('product_id', $item->id)->get();
+			  
+							  // Calculate the average rating and limit it to a maximum of 5
+							  $averageRating = min($productRatings->avg('rating'), 5);
+			  
+							  // Calculate the number of full stars
+							  $fullStars = floor($averageRating);
+			  
+							  // Calculate the presence of a half star
+							  $hasHalfStar = ($averageRating - $fullStars) >= 0.5;
+							@endphp
+			  
+							@for ($i = 1; $i <= 5; $i++)
+							  @if ($i <= $fullStars)
+								<span class="star" style="font-size: 24px; color: gold;">&#9733;</span>
+							  @elseif ($hasHalfStar)
+								<span class="star half" style="font-size: 24px; color: gold;">&#9733;</span>
+								@php $hasHalfStar = false; @endphp
+							  @else
+								<span class="star" style="font-size: 24px; color: gray;">&#9733;</span>
+							  @endif
+							@endfor
 						<p class="price">{{ $item->price }} Tk</p>
 					</div>
 				</div>
