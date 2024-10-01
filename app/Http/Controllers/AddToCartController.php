@@ -71,7 +71,8 @@ class AddToCartController extends Controller
 
             public function viewCart()
             {
-              return view('frontend.pages.addToCart.viewCard');
+              $cart = session()->get('cart', []);
+              return view('frontend.pages.addToCart.viewCard',compact('cart'));
             }
 
             public function clearCart()
@@ -91,4 +92,34 @@ class AddToCartController extends Controller
                 notify()->success('Item removed.');
               return redirect()->back();
             }
+
+            public function updateCartQuantity(Request $request, $id)
+{
+    // Validate input
+    $validatedData = $request->validate([
+        'quantity' => 'required|integer|min:1'
+    ]);
+
+    // Fetch the cart from session
+    $cart = session()->get('cart');
+
+    if (isset($cart[$id])) {
+        // Update the cart item
+        $cart[$id]['quantity'] = $validatedData['quantity'];
+        $cart[$id]['subtotal'] = $cart[$id]['quantity'] * $cart[$id]['price'];
+        
+        // Store the updated cart back in session
+        session()->put('cart', $cart);
+
+        // Success notification
+        notify()->success('Cart quantity updated successfully.');
+    } else {
+        // Error notification
+        notify()->error('Product not found in cart.');
+    }
+
+    // Redirect back to the cart page
+    return redirect()->back();
+}
+
         }

@@ -52,11 +52,15 @@ Route::get('/registration', 'registration')->name('registration');
 Route::post('/registration', 'registrationStore')->name('registration.submit');});
 
 Route::group(['middleware' => 'customerAuth'], function () {
-Route::controller(AddToCartController::class)->group(function(){
-Route::get('add-to-cart/{id}','addToCart')->name('add.to.cart');
-Route::get('/view-cart','viewCart');
-Route::get('/clear-cart','clearCart')->name('cart.clear');
-Route::get('/cart-item/delete/{id}','cartItemDelete')->name('cart.item.delete');});
+    Route::controller(AddToCartController::class)->group(function(){
+        Route::get('add-to-cart/{id}','addToCart')->name('add.to.cart');
+        Route::get('/view-cart','viewCart');
+        Route::get('/clear-cart','clearCart')->name('cart.clear');
+        
+        Route::get('/cart-item/delete/{id}','cartItemDelete')->name('cart.item.delete');});
+
+        // POST route for updating cart item quantity
+Route::post('/cart-item/update-quantity/{id}', [AddToCartController::class, 'updateCartQuantity'])->name('cart.update.quantity');
 Route::controller(WishlistController::class)->group(function(){
 Route::get('/wishlist',  'index')->name('wishlist.index');
 Route::post('/wishlist/add/{id}', 'addToWishlist')->name('add.to.wishlist');
