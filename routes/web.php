@@ -43,7 +43,7 @@ Route::post('/login','loginProcess')->name('login.submit');
 Route::get('/logout','logout')->name('logout');
 Route::get('/registration', 'registration')->name('registration');
 Route::post('/registration', 'registrationStore')->name('registration.submit');});
-
+Route::get('/category/{id}',[FrontendHomeController::class,'categoryWiseProduct']);
 Route::group(['middleware' => 'customerAuth'], function () {
 Route::controller(AddToCartController::class)->group(function(){
 Route::get('add-to-cart/{id}','addToCart')->name('add.to.cart');

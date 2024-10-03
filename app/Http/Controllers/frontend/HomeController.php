@@ -21,17 +21,28 @@ class HomeController extends Controller
 
      
           //Category
-          $categories = Category::latest()->limit(9)->get();
+          $categories = Category::latest()->limit(12)->get();
          
           //Products
           $products = Product::Paginate(12);
 
-          //Latest Products
-          $latestProducts = Product::where('status',1)->latest()->limit(6)->get();
-
-        
+  
          return view('frontend.pages.home',
-         compact('categories','products','latestProducts'));
+         compact('categories','products',));
+    }
+
+    public function categoryWiseProduct($id){
+
+        $category = Category::findOrFail($id);
+
+        //Feature Products
+        $products = Product::where('category_id', $id)
+        ->where('status', 1)->limit(20)
+        ->get();
+
+
+
+        return view('frontend.pages.catWise',compact('products','category'));
     }
 
 }
