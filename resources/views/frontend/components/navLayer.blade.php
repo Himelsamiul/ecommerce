@@ -172,7 +172,7 @@
 
                         <li class="dropdown dropdown-slide">
                             <a href="{{ url('/profile') }}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                                role="button" aria-haspopup="true" aria-expanded="false"><b style="color: rgb(5, 63, 13)">Profile</b> <span
+                                role="button" aria-haspopup="true" aria-expanded="false"><b style="color: rgb(5, 63, 13)">{{ auth()->user()->name }}</b> <span
                                     ></span></a>
                         
                         </li>
