@@ -64,15 +64,26 @@
 
                       @if(session()->has('cart') && is_array(session()->get('cart')))
                       @foreach(session()->get('cart') as $data)
-                      <div class="media product-card">
-                        
-                         <div class="media-body">
-                            <h4 class="media-heading"><a href="product-single.html">{{$data['name']}} </a></h4>
+                      <div class="media product-card" style="display: flex; align-items: center;">
+                        <!-- Product information -->
+                        <div class="media-body" style="flex: 1;">
+                            <h4 class="media-heading">
+                                <a href="product-single.html">{{ $data['name'] }}</a>
+                            </h4>
                             <p class="price">{{ $data['price'] * $data['quantity'] }} Tk</p>
-                           
-                         </div>
-
-                      </div>
+                        </div>
+                        
+                        <!-- Quantity section -->
+                        <ul style="list-style: none; padding-left: 0; margin: 0; display: flex; align-items: center;">
+                            <li style="margin-right: 10px;">
+                                <span>Quantity:</span>
+                            </li>
+                            <li>
+                                <span>{{ $data['quantity'] }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
                       @endforeach
                       @endif
 
@@ -82,10 +93,7 @@
                             <span>Subtotal:</span>
                             <span class="price">{{ $subtotal ?? 0 }} Tk.</span>
                          </li>
-                         <li>
-                            <span>Quantity:</span>
-                            <span>{{$data['quantity']}}</span>
-                         </li>
+                         
                       </ul>
                       <div class="summary-total">
                          <span>Total</span>

@@ -25,7 +25,7 @@
                                         <td>
                                             <div class="product-info">
                                                 <img width="80" src="images/shop/cart/cart-1.jpg" alt="" />
-                                                <a href="#!"> {{ $data['name'] }} Tk</a>
+                                                <a href="#!"> {{ $data['name'] }}</a>
                                             </div>
                                         </td>
                                         <td>{{ $data['price'] * $data['quantity'] }} Tk</td>

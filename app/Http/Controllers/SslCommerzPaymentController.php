@@ -16,7 +16,7 @@ class SslCommerzPaymentController extends Controller
     public function index(Request $request ,$id)
     {
 
-       
+       //dd($request);
         $validator = Validator::make($request->all(), [
             
             'address'           => 'required|string',
@@ -37,7 +37,13 @@ class SslCommerzPaymentController extends Controller
         
 
     $cart = session()->get('cart', []);
+    $totalPrice = 0;
 
+    foreach ($cart as $item) {
+        $totalPrice += $item['subtotal'];
+    }
+
+    
     foreach ($cart as $productId => $cartItem) {
         $product = Product::find($id);
 
@@ -56,8 +62,8 @@ class SslCommerzPaymentController extends Controller
         $subtotal = $request->input('total_price');
 
         $post_data = array();
-        $post_data['total_amount'] = $product->price;
-        $post_data['total_price'] = $subtotal;
+        $post_data['total_amount'] = $totalPrice;
+        $post_data['total_price'] = $totalPrice;
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); 
 
