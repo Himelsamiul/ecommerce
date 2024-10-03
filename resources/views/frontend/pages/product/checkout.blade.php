@@ -68,7 +68,7 @@
                         
                          <div class="media-body">
                             <h4 class="media-heading"><a href="product-single.html">{{$data['name']}} </a></h4>
-                            <p class="price">{{$data['price']}} Tk</p>
+                            <p class="price">{{ $data['price'] * $data['quantity'] }} Tk</p>
                            
                          </div>
 

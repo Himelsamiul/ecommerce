@@ -28,7 +28,7 @@
                                                 <a href="#!"> {{ $data['name'] }} Tk</a>
                                             </div>
                                         </td>
-                                        <td>{{ $data['price'] }} Tk</td>
+                                        <td>{{ $data['price'] * $data['quantity'] }} Tk</td>
                                         <td>
                                             <a class="product-remove" href="{{ route('cart.item.delete', $key) }}">Remove</a>
                                         </td>
