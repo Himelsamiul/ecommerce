@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -19,7 +18,6 @@ class CategoryController extends Controller
 
     public function categoryStore(Request $request){
 
-        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'type'          => 'required|string|unique:categories',
             'status'        =>'required'
@@ -29,8 +27,6 @@ class CategoryController extends Controller
 
         return redirect()->back()->withErrors($validator)->withInput();
     }
-
-       // dd($request->all());
 
         Category::create([
 
@@ -55,7 +51,7 @@ class CategoryController extends Controller
 
 
     public function categorupdate(Request $request ,$id){
-  // dd($request->all());
+
   $validator = Validator::make($request->all(), [
 
     'type' => 'required|string|unique:categories',
@@ -85,11 +81,6 @@ class CategoryController extends Controller
 
         return back();
     }
-    public function websiteTitle(){
-        $category=Category::all();
-        return view('backend.pages.category.subCategory',compact('category'));
-    }
-
-
+  
 
 }

@@ -27,7 +27,6 @@ class WishlistController extends Controller
 {
     
     $user = Auth::user();
-    //dd( $user);
     if (!$user->wishlistProducts->contains('id', $id)) {
         $wishlistItem = Wishlist::create([
             'product_id' => $id,

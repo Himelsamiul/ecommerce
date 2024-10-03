@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Models\ProductRating;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,8 +16,7 @@ class ProductController extends Controller
     }
 
     public function productStore(Request $request){
-         //dd($request->all());
-
+       
         $validator = Validator::make($request->all(), [
             'name'                  => 'required|string',
             'category_id'           => 'required',
@@ -39,9 +37,6 @@ class ProductController extends Controller
             $images=date('Ymdhsis').'.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('uploads', $images, 'public');
         }
-        //dd($imageName);
-        // dd($request->all());
-
 
         $product=  Product::create([
 
@@ -50,23 +45,9 @@ class ProductController extends Controller
              "image"                =>$images,
              "stock"                =>$request->stock,
              "price"                =>$request->price,
-             "discount"             =>$request->discount,
              'product_information'  =>$request->product_information,
              'status'               =>$request->status,
           ]);
-
-          if ($product) {
-            // Assuming $product->discount is the discount percentage (e.g., 70%)
-            $discountPercentage = $product->discount / 100;
-            $originalPrice = $product->price;
-
-            // Calculate the discounted price
-            $discountedPrice = $originalPrice - ($originalPrice * $discountPercentage);
-
-            // Update the product's discounted price
-            $product->update(['discounted_price' => $discountedPrice]);
-        }
-
 
           return back()->with('success', 'Product Added Successfully!');
 
@@ -90,12 +71,10 @@ class ProductController extends Controller
 
         public function productupdate( Request $request ,$id){
 
-
-           // dd($request->all());
         $validator = Validator::make($request->all(), [
             'name'                  => 'required',
             'category_id'           => 'required',
-            'image'                 => 'nullable|max:200',   
+            'image'                 => 'nullable|max:2000',   
             'stock'                 => 'required|integer',
             'price'                 => 'required',
             'product_information'   => 'required',
@@ -111,9 +90,7 @@ class ProductController extends Controller
             $images=date('Ymdhsis').'.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('uploads', $images, 'public');
         }
-            //dd($imageName);
-            //dd($request->all());
-
+         
             $update=Product::find($id);
 
             $update->update([
@@ -140,44 +117,5 @@ class ProductController extends Controller
 
             return redirect()->back();
         }
-
-
-        public function storeRating(Request $request, $id)
-        {
-            //dd($request->all());
-            $request->validate([
-                'rating'=>'required'
-            ]);
-
-            $product = Product::find($id);
-
-            $rating = new ProductRating();
-            $rating->product_id = $product->id;
-            $rating->rating = $request->input('rating');
-            $rating->save();
-            notify()->success('Thank you for your feedback.');
-            return back();
-            }
-
-            //Trending Product
-              public function trendingProduct(){
-
-                $trendingProduct = Product::where('status',2)->latest()->limit(8)->get();
-
-                return view('frontend.components.trendingProduct',compact('trendingProduct'));
-            }
-            public function trendingStatus($id){
-
-                $product = Product::find($id);
-
-                $product->update([
-                    "status"=>"2"
-                ]);
-
-                Alert::success('Your status has been changed');
-
-                return redirect()->route('product.list');
-
-            }
 
             }

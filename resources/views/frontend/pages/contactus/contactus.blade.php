@@ -38,7 +38,7 @@
             <p>You can reach us through the contact form or by using the following information:</p><br>
             <ul>
               <li><strong>Address:</strong> IUBAT, Sector 10</li><br>
-              <li><strong>Phone:</strong> 01776718178</li><br>
+              <li><strong>Phone:</strong> 0177333333</li><br>
               <li><strong>Email:</strong> iubat@gmail.com</li><br>
             </ul>
            

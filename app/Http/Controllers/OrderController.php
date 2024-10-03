@@ -16,11 +16,9 @@ class OrderController extends Controller
         return view('backend.pages.order.orderList',compact('orders'));
     }
 
-
-
     public function report()
     {
-        //dd('yes');
+     
         $oders = Order::all();
         
         return view('backend.pages.report.report',compact('oders'));

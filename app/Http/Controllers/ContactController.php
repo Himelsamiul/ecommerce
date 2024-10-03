@@ -14,21 +14,17 @@ class ContactController extends Controller
     }
     public function contactForm(Request $request){
 
-       // dd($request->all());
-
        $validator = Validator::make($request->all(), [
         'name'      => 'required',
         'email'     => 'required|email',
         'message'   => 'required',
     ]);
 
-    // If validation fails, redirect back with error messages
+
     if ($validator->fails()) {
         return redirect()->back()->withErrors($validator)->withInput();
     }
-
         Contact::create([
-
             "name"      =>$request->name,
             "email"     =>$request->email,
             "message"   =>$request->message,

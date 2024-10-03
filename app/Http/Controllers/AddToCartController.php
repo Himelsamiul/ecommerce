@@ -9,6 +9,19 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AddToCartController extends Controller
 {
+
+  public function viewCart()
+  {
+    $cart = session()->get('cart', []);
+    return view('frontend.pages.addToCart.viewCard',compact('cart'));
+  }
+
+  public function clearCart()
+  {
+      session()->forget('cart');
+      notify()->success('Cart Clear Success.');
+      return redirect()->back();
+  }
     public function addToCart($id)
     {
 
@@ -19,13 +32,11 @@ class AddToCartController extends Controller
 //            dd($cart);
             if(!$cart)
             {
-                //step 1: cart empty
-                //add to cart- first product
                     $myCart[$id]=[
                       'name'=>$product->name,
                       'price'=>$product->price,
                       'quantity'=>1,
-                      'subtotal'=>$product->price,//price x quantity
+                      'subtotal'=>$product->price,
                     ];
 
                   session()->put('cart',$myCart);
@@ -34,16 +45,12 @@ class AddToCartController extends Controller
                   return redirect()->back();
             }
 
-
-            //step 2:Cart not empty but product not exist
-            //add to cart
-
             if(!array_key_exists($id,$cart)){
                 $cart[$id]=[
                     'name'=>$product->name,
                     'price'=>$product->price,
                     'quantity'=>1,
-                    'subtotal'=>$product->price,//price x quantity
+                    'subtotal'=>$product->price,
                 ];
 
                 session()->put('cart',$cart);
@@ -51,9 +58,6 @@ class AddToCartController extends Controller
                 return redirect()->back();
 
             }
-
-            //step 3 : cart not empty but product exist
-            // quantity , subtotal update
             $cart[$id]['quantity']=$cart[$id]['quantity']+1;
             $cart[$id]['subtotal']=$cart[$id]['quantity'] * $cart[$id]['price'];
             session()->put('cart',$cart);
@@ -66,59 +70,41 @@ class AddToCartController extends Controller
           return redirect()->back();
 
 
-
-            }
-
-            public function viewCart()
-            {
-              $cart = session()->get('cart', []);
-              return view('frontend.pages.addToCart.viewCard',compact('cart'));
-            }
-
-            public function clearCart()
-            {
-                session()->forget('cart');
-                notify()->success('Cart Clear Success.');
-                return redirect()->back();
             }
 
             public function cartItemDelete($id)
             {
               $cart=session()->get('cart');
-        //      dd($cart);
               unset($cart[$id]);
-        //      dd($cart);
                 session()->put('cart',$cart);
-                notify()->success('Item removed.');
+                notify()->success('Product removed.');
               return redirect()->back();
             }
 
             public function updateCartQuantity(Request $request, $id)
 {
-    // Validate input
+  
     $validatedData = $request->validate([
         'quantity' => 'required|integer|min:1'
     ]);
 
-    // Fetch the cart from session
+
     $cart = session()->get('cart');
 
     if (isset($cart[$id])) {
-        // Update the cart item
+
         $cart[$id]['quantity'] = $validatedData['quantity'];
         $cart[$id]['subtotal'] = $cart[$id]['quantity'] * $cart[$id]['price'];
         
-        // Store the updated cart back in session
+
         session()->put('cart', $cart);
 
-        // Success notification
+      
         notify()->success('Cart quantity updated successfully.');
     } else {
-        // Error notification
+      
         notify()->error('Product not found in cart.');
     }
-
-    // Redirect back to the cart page
     return redirect()->back();
 }
 

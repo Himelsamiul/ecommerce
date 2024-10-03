@@ -14,8 +14,5 @@ class ProfileController extends Controller
         return view('frontend.pages.profile',compact('order'));
     }
 
-    public function adminProfile(){
-        
-        return view('backend.pages.profile.profile');
-    }
+    
 }

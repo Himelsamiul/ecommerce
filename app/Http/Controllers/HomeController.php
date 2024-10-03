@@ -16,12 +16,8 @@ class HomeController extends Controller
         $totalOrder         = Order::get()->count();
         $totalProducts      = Product::get()->count();
         $totalCategories    = Category::get()->count();
-        $ordersPerDay       = Order::select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) 
-                                        as orders_count'))
-                                    ->groupBy('date')
-                                    ->orderBy('date', 'asc')
-                                    ->get();
+       
 
-        return view('backend.pages.dashboard',compact('totalOrder','totalProducts','totalCategories', 'ordersPerDay','totalUsers'));
+        return view('backend.pages.dashboard',compact('totalOrder','totalProducts','totalCategories','totalUsers'));
     }
 }

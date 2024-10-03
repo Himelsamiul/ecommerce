@@ -15,7 +15,7 @@
 
             <div class="mb-4">
                 <label for="exampleInputName2" class="form-label" style="color: #000"><b>Category Type</b></label>
-                <input type="text" value="{{ old('type') }}" class="form-control" id="exampleInputName2" name="type" placeholder="Kurti" style="height: 45px; font-size: 18px; border: 1px solid #000;">
+                <input type="text" value="{{ old('type') }}" class="form-control" id="exampleInputName2" name="type" placeholder="type name" style="height: 45px; font-size: 18px; border: 1px solid #000;">
                 @error('type')
                     <strong class="text-danger">{{ $message }}</strong>
                 @enderror

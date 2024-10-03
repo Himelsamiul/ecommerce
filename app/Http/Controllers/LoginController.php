@@ -38,8 +38,6 @@ class LoginController extends Controller
         }
     }
 
-// Authentication failed
-
 
 public function logout(){
 
@@ -82,7 +80,6 @@ public function registrationStore(Request $request){
         "address"=>$request->address,
 
         "name"=>$request->name,
-
 
         "password"=>bcrypt($request->password),
 
