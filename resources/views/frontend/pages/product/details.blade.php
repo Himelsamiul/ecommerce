@@ -67,18 +67,7 @@
               <div id="details" class="tab-pane fade active in">
                 <h4>Product Description</h4>
                 <p>{!!($details->product_information)!!}</p>
-                <form action="{{ route('product.rate',$details->id) }}" method="POST">
-                  @csrf
-          <div class="rating-css">
-            <div class="star-icon">
-              @for ($i = 1; $i <= 5; $i++)
-                <input type="radio" value="{{ $i }}" name="rating" id="rating{{ $i }}">
-                <label for="rating{{ $i }}" class="fa fa-star"></label>
-              @endfor
-            </div>
-            <button type="submit" class="btn btn-info">Rate This</button>
-          </div>
-        </form>
+        
               </div>
               
             </div>
