@@ -33,6 +33,9 @@ Route::get('/product',[FrontendProductController::class,'product']);
 Route::get('/product-details/{id}',[FrontendProductController::class,'productDetails'])->name('details');
 Route::get('/search',[SearchController::class,'search'])->name('user.search');
 Route::get('/profile',[ProfileController::class,'profile']);
+Route::get('/order/payslip/{item}', [ProfileController::class, 'showPayslip'])->name('order.payslip');
+
+
 Route::post('/pay/{id}', [SslCommerzPaymentController::class, 'index'])->name('pay.now');
 Route::post('/success', [SslCommerzPaymentController::class, 'success']);
 Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);

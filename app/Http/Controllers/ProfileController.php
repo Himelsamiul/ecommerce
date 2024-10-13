@@ -14,5 +14,27 @@ class ProfileController extends Controller
         return view('frontend.pages.profile',compact('order'));
     }
 
+    // App\Http\Controllers\ProfileController.php
+
+
+    public function showPayslip($orderId)
+    {
+        // Fetch the specific order by its ID, ensuring it belongs to the authenticated user
+        $order = Order::with('user', 'product')
+            ->where('id', $orderId)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+        
+        // If the order is not found, redirect with an error message
+        if (!$order) {
+            return redirect()->route('profile')->with('error', 'Order not found');
+        }
+        
+        // Pass the order to the 'payslip' view
+        return view('frontend.pages.payslip', compact('order')); // Use 'order' for clarity
+    }
+    
+    
+
     
 }
