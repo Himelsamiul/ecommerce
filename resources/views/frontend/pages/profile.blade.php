@@ -45,8 +45,12 @@
                   <thead>
                     <tr>
                       <th>Order ID</th>
+                      <th>Product Name</th>
+                      <th>Customer Name</th>
                       <th>Date</th>
                       <th>Items</th>
+                      <th>Address</th>
+                      <th>Email Address</th>
                       
                       <th>Status</th>
                     </tr>
@@ -60,9 +64,12 @@
                         @foreach ($order as $index => $item)
                         <tr>
                             <th scope="row">{{ $index + 1 }}</th>
+                            <td>{{ $item->product->name }}</td>
+                            <td>{{ $item->full_name }}</td>
                             <td>{{ $item->created_at->format('Y-m-d') }}</td>
                             <td>{{ $item->price }} Tk</td>
-
+                            <td>{{ $item->address }}</td>
+                            <td>{{ $item->email }}</td>
                             <td>{{ $item->status }}</td>
                             
                             
